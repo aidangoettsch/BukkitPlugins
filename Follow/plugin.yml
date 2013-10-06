@@ -1,0 +1,7 @@
+name: Follow
+main: com.yayestechlab.minecraft.Follow.Main
+version: 0.1
+commands:
+    follow:
+        description: This is a demo command.
+        usage: /<command>

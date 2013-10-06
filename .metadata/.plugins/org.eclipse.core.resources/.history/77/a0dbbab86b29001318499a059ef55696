@@ -1,0 +1,5 @@
+package com.yayestechlab.minecraft.SupplyCrates;
+
+public class CrateInventory extends Inventory{
+
+}

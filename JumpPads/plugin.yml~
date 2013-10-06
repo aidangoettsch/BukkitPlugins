@@ -1,0 +1,18 @@
+name: JumpPads
+main: com.yayestechlab.minecraft.jumppads.JumpPads
+version: 0.1
+commands:
+    jumppads:
+        description: This is a demo command.
+        usage: /<command> 
+        permission: serverpad.admin
+        permission-message: You don't have permission.
+    jp:
+        description: This is a demo command.
+        usage: /<command> 
+        permission: serverpad.admin
+        permission-message: You don't have permission.
+permissions:
+    jumppad.admin:
+        description: Gives access to all Jumppad commands
+        default: op

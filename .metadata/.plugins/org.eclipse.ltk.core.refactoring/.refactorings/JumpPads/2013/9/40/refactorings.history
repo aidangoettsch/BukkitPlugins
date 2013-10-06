@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DataManager.java&apos; to &apos;SupplyCrates/src/com.yayestechlab.minecraft.SupplyCrates.config&apos;&#x0A;- Original project: &apos;JumpPads&apos;&#x0A;- Destination element: &apos;SupplyCrates/src/com.yayestechlab.minecraft.SupplyCrates.config&apos;&#x0A;- Original element: &apos;com.yayestechlab.minecraft.jumppads.config.DataManager.java&apos;" description="Copy compilation unit" destination="=SupplyCrates/src&lt;com.yayestechlab.minecraft.SupplyCrates.config" element1="/src&lt;com.yayestechlab.minecraft.jumppads.config{DataManager.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1380460093467" units="1" version="1.0"/>
+</session>

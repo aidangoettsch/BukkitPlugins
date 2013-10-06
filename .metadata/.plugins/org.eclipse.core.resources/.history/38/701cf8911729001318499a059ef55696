@@ -1,0 +1,14 @@
+package com.yayestechlab.minecraft.Follow;
+
+public class Timer extends Thread{
+	public void start(){
+		
+	}
+	
+	public void run(){
+		Location location = [any location you want here]
+		int speed = 1;
+		Vector dir = location.toVector().subtract(player.getLocation().toVector()).normalize();
+		player.setVelocity(dir.multiply(speed));
+	}
+}

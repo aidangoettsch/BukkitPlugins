@@ -1,0 +1,50 @@
+package com.yayestechlab.minecraft.jumppads.listeners;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.util.Vector;
+
+import com.yayestechlab.minecraft.jumppads.ServerPads;
+import com.yayestechlab.minecraft.jumppads.config.DataManager;
+
+public class ServerPadListener implements Listener{
+	ServerPads plugin;
+	
+	public ServerPadListener(ServerPads p){
+		plugin = p;
+	}
+	public void run(String server) {
+		ByteArrayOutputStream b = new ByteArrayOutputStream();
+		DataOutputStream out = new DataOutputStream(b);
+		try {
+			out.writeUTF("Connect");
+			out.writeUTF(server);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	@EventHandler
+	public void onPlayerMove(PlayerMoveEvent e){
+		Player p = e.getPlayer();
+		Vector ploc = plugin.convertLocationToVector(p.getLocation().getBlock().getLocation());
+		FileConfiguration cfg = plugin.cfg;
+		DataManager dm = new DataManager();
+		String key = dm.getKeyByValueVector(ploc, cfg, plugin);
+		if(key != null){
+			Vector velocity = cfg.getVector("padvelocity." + key);
+			String server = cfg.getString("padname." + key);
+			p.setVelocity(velocity);
+			plugin.getServer().getScheduler().runTaskLater(plugin, new Runnable() {
+				run(server);
+				},60L);
+		}
+	}
+}

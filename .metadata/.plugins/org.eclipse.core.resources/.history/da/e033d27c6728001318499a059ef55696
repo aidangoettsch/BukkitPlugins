@@ -1,0 +1,33 @@
+package com.yayestechlab.minecraft.jumppads.listeners;
+
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.util.Vector;
+
+import com.yayestechlab.minecraft.jumppads.JumpPads;
+import com.yayestechlab.minecraft.jumppads.config.DataManager;
+
+public class JumpPadListener implements Listener{
+	JumpPads plugin;
+	
+	public JumpPadListener(JumpPads p){
+		plugin = p;
+	}
+	
+	@EventHandler
+	public void onPlayerMove(PlayerMoveEvent e){
+		Player p = e.getPlayer();
+		Vector ploc = plugin.convertLocationToVector(p.getLocation().getBlock().getLocation());
+		FileConfiguration cfg = plugin.cfg;
+		DataManager dm = new DataManager();
+		String key = dm.getKeyByValueVector(ploc, cfg, plugin);
+		if(key != null){
+			String[] keyarray = key.split(".");
+			Vector velocity = cfg.getVector("padvalue." + keyarray[1]);
+			p.setVelocity(velocity);
+		}
+	}
+}
