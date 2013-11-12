@@ -1,7 +1,0 @@
-package com.yayestechlab.minecraft.Follow;
-
-import org.bukkit.command.CommandExecutor;
-
-public class FollowCommandExecutor implements CommandExecutor {
-
-}

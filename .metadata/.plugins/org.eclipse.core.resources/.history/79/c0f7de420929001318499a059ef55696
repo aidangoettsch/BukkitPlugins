@@ -1,7 +1,0 @@
-package com.yayestechlab.minecraft.SupplyCrates.listeners;
-
-import org.bukkit.event.Listener;
-
-public class SupplyCratesListener implements Listener {
-
-}

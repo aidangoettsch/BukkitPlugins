@@ -9,21 +9,21 @@ import org.bukkit.util.Vector;
 
 public class FollowListener implements Listener{
 	
+	private Main plugin;
+	
+	public FollowListener(Main main) {
+		plugin = main;
+	}
+	
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent e){
 		Player p = e.getPlayer();
 		if (p == Main.p2){
 			Location location = p.getLocation();
-			if (location.getWorld() == Main.p1.getLocation().getWorld()){
-				int speed = 1;
-				Vector dir = location.toVector().subtract(Main.p1.getLocation().toVector()).normalize();
-				dir.setY(0);
-				Main.p1.setVelocity(dir.multiply(speed));
-			} else {
-				Location newloc = p.getLocation();
-				newloc.setY(p.getLocation().getY() + 3);
-				Main.p1.teleport(newloc);
-			}
+			location.setY(location.getY() + 3);
+			Main.p1.teleport(location);
+			Main.p1.setAllowFlight(true);
+			Main.p1.setFlying(true);
 		}
 	}
 }

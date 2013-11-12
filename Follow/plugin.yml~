@@ -4,4 +4,9 @@ version: 0.1
 commands:
     follow:
         description: This is a demo command.
-        usage: /<command> 
+        usage: /<command>
+        permission: follow.follow
+        permission-message: You dont have permission!
+permissions:
+    follow.follow
+        default: op
