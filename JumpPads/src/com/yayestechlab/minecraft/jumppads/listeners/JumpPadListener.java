@@ -26,17 +26,9 @@ public class JumpPadListener implements Listener{
 		String key = dm.getKeyByValueVector(ploc, cfg, plugin);
 		if(key != null){
 			Vector velocity = cfg.getVector("padvelocity." + key);
-			if (Math.floor(p.getLocation().getY()) != p.getLocation().getY()){
-				while(Math.floor(p.getLocation().getY()) != p.getLocation().getY()){
-					try {
-						Thread.currentThread().sleep(1L);
-					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
+			if (Math.floor(p.getLocation().getY()) == p.getLocation().getY()){
+				p.setVelocity(velocity);
 			}
-			p.setVelocity(velocity);
 		}
 	}
 }

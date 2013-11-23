@@ -27,7 +27,6 @@ public class ServerPadsCommandExecutor implements CommandExecutor {
 						Player p = (Player) sender;
 						Vector loc = plugin.convertLocationToVector(p.getLocation().getBlock().getLocation());
 						dm.set("padloc." + args[1], loc, plugin.cfg);
-						dm.set("padname.padloc" + args[1], args[1], plugin.cfg);
 						dm.set("padvelocity." + "padloc." + args[1], new Vector(Double.parseDouble(args[2]), Double.parseDouble(args[3]), Double.parseDouble(args[4])), plugin.cfg);
 						DataManager.savePadConfig(plugin, plugin.cfg);
 						sender.sendMessage("Added pad");
