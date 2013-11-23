@@ -1,0 +1,18 @@
+name: RandomTPPads
+main: com.yayestechlab.minecraft.randomtppads.RandomTPPads
+version: 0.1
+commands:
+    randomtppads:
+        description: This is a demo command.
+        usage: /<command> 
+        permission: randomtppad.admin
+        permission-message: You don't have permission.
+    rtpp:
+        description: This is a demo command.
+        usage: /<command> 
+        permission: randomtppad.admin
+        permission-message: You don't have permission.
+permissions:
+    randomtppad.admin:
+        description: Gives access to all Jumppad commands
+        default: op
