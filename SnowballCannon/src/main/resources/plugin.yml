@@ -1,0 +1,7 @@
+name: SnowballCannon
+main: net.y23k.SnowballCannon.Main
+version: ${version}
+
+author: yayes2
+
+depends: Y23KCore
